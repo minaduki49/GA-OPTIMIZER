@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>法的表記 | GA OPTIMIZER PRO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0a0a0a; color: #ffffff; margin: 0; }
+        .lang-en { display: none !important; }
+        .lang-ja { display: block !important; }
+        span.lang-ja { display: inline !important; }
+        .active-btn { background-color: #2563eb !important; color: white !important; }
+        .nav-bar { position: sticky; top: 0; background: #000; padding: 15px; border-bottom: 1px solid #333; margin-bottom: 30px; }
+        .label { color: #52525b; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.25rem; }
+    </style>
+</head>
+<body class="font-sans text-zinc-300">
+
+    <div class="nav-bar">
+        <div class="max-w-2xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-blue-500 text-xs font-bold">
+                <span class="lang-ja">← 戻る</span><span class="lang-en">← BACK</span>
+            </a>
+            <div class="flex border border-zinc-700 rounded-lg overflow-hidden bg-zinc-800">
+                <button onclick="setLang('ja')" id="btn-ja" class="active-btn px-4 py-2 text-xs font-bold transition-all">日本語</button>
+                <button onclick="setLang('en')" id="btn-en" class="px-4 py-2 text-xs font-bold text-zinc-500 transition-all">ENGLISH</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-2xl mx-auto p-6 pb-20">
+        <h1 class="text-3xl font-black border-b-4 border-blue-600 pb-2 mb-10 uppercase italic">
+            <span class="lang-ja">特定商取引法に基づく表記</span>
+            <span class="lang-en">Legal Notice</span>
+        </h1>
+        
+        <div class="space-y-8">
+            <div>
+                <p class="label">Entity / 販売業者</p>
+                <p class="text-lg font-bold text-white uppercase">Minaduki</p>
+            </div>
+            
+            <div>
+                <p class="label">Representative / 運営責任者</p>
+                <p class="text-lg text-white font-bold">
+                    <span class="lang-ja">酒井  潤一</span>
+                    <span class="lang-en">Junichi Sakai</span>
+                </p>
+            </div>
+
+            <div>
+                <p class="label">Address / 所在地</p>
+                <div class="text-white">
+                    <span class="lang-ja">〒485-0058 愛知県小牧市小木5丁目232-4</span>
+                    <span class="lang-en">5-232-4 Koki, Komaki-shi, Aichi, 485-0058 Japan</span>
+                </div>
+            </div>
+
+            <div>
+                <p class="label text-blue-500">Email / メールアドレス</p>
+                <p class="text-white font-mono text-lg">jun.sakai49@gmail.com</p>
+            </div>
+
+            <div>
+                <p class="label">Price / 販売価格</p>
+                <p class="text-white">
+                    <span class="lang-ja">月額 1,980円（税込）</span>
+                    <span class="lang-en">¥1,980 / month (Tax included)</span>
+                </p>
+            </div>
+
+            <div>
+                <p class="label">Delivery / 商品の引渡時期・支払方法</p>
+                <div class="lang-ja text-sm leading-relaxed">決済完了後、即時にライセンスキーをメールにて送付します。クレジットカード決済（Stripe）による毎月の自動更新となります。</div>
+                <div class="lang-en text-sm leading-relaxed">License keys are delivered via email immediately upon payment completion. Automatic monthly renewal via credit card (Stripe).</div>
+            </div>
+
+            <div>
+                <p class="label text-red-500">Refund Policy / 返品・キャンセル・返金</p>
+                <div class="bg-red-950/20 p-4 border border-red-900/30 rounded-xl">
+                    <div class="lang-ja text-zinc-300">
+                        <p class="text-white font-bold mb-2">デジタルコンテンツの性質上、決済後の返金には一切応じられません。</p>
+                        無料版にてお客様の環境での動作を確認済みであることを前提としております。
+                    </div>
+                    <div class="lang-en text-zinc-300">
+                        <p class="text-white font-bold mb-2">No refunds once payment is completed due to the nature of digital goods.</p>
+                        It is assumed you have verified operation with the Free Version.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-2xl font-black mt-20 mb-8 text-blue-500 uppercase italic underline underline-offset-8">Intellectual Property</h2>
+        
+        <div class="space-y-10">
+            <section>
+                <h3 class="text-white font-bold mb-3 flex items-center gap-2">
+                    <span class="w-1.5 h-5 bg-blue-600"></span> 
+                    <span class="lang-ja">ソフトウェア自体の著作権</span>
+                    <span class="lang-en">Software Copyright</span>
+                </h3>
+                <div class="lang-ja text-zinc-400 text-sm leading-relaxed">
+                    本ソフトウェア（GA OPTIMIZER PRO）のプログラム、アルゴリズム、バイナリデータ（ga_engine.pyc等）の著作権はMinadukiに帰属します。<br>
+                    <span class="text-red-400 font-bold">本ソフトの逆コンパイル、解析、改ざん、および第三者への再配布・ライセンスキーの共有は法的措置の対象となります。</span>
+                </div>
+                <div class="lang-en text-zinc-400 text-sm leading-relaxed">
+                    All rights to the program, algorithms, and binary data (ga_engine.pyc, etc.) belong to Minaduki.<br>
+                    <span class="text-red-400 font-bold">Reverse engineering, decompiling, tampering, or redistributing license keys is subject to legal action.</span>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="text-white font-bold mb-3 flex items-center gap-2 text-green-500">
+                    <span class="w-1.5 h-5 bg-green-500"></span> 
+                    <span class="lang-ja">生成物の権利と商用利用</span>
+                    <span class="lang-en">Output Rights & Commercial Use</span>
+                </h3>
+                <div class="lang-ja text-zinc-400 text-sm leading-relaxed">
+                    本ソフトウェア（Pro版）を通じて生成された画像およびプロンプトの権利は利用者に帰属します。商用利用を全面的に許可します。
+                </div>
+                <div class="lang-en text-zinc-400 text-sm leading-relaxed">
+                    Rights to images and prompts generated through this software belong to the user. Full commercial use is permitted.
+                </div>
+            </section>
+
+            <section>
+                <h3 class="text-white font-bold mb-3 flex items-center gap-2 text-yellow-500">
+                    <span class="w-1.5 h-5 bg-yellow-500"></span> 
+                    <span class="lang-ja">AIモデル（Hugging Face）規約</span>
+                    <span class="lang-en">AI Model (Hugging Face) Terms</span>
+                </h3>
+                <div class="lang-ja text-zinc-400 text-sm leading-relaxed">
+                    本ソフトが利用するStable Diffusionモデルのライセンス（CreativeML Open RAIL-M）を遵守してください。性的搾取、ディープフェイク、誹謗中傷、公序良俗に反する目的での利用を禁止します。
+                </div>
+                <div class="lang-en text-zinc-400 text-sm leading-relaxed">
+                    Please comply with the Stable Diffusion model license (CreativeML Open RAIL-M). Use for sexual exploitation, deepfakes, defamation, or any purpose contrary to public order is prohibited.
+                </div>
+            </section>
+        </div>
+
+        <footer class="mt-20 text-center text-[10px] text-zinc-700 tracking-[0.2em] uppercase">
+            &copy; 2026 Minaduki.
+        </footer>
+    </div>
+
+    <script>
+        function setLang(lang) {
+            const isJa = (lang === 'ja');
+            document.querySelectorAll('.lang-ja').forEach(el => el.style.setProperty('display', isJa ? (el.tagName === 'SPAN' ? 'inline' : 'block') : 'none', 'important'));
+            document.querySelectorAll('.lang-en').forEach(el => el.style.setProperty('display', isJa ? 'none' : (el.tagName === 'SPAN' ? 'inline' : 'block'), 'important'));
+            document.getElementById('btn-ja').className = isJa ? 'active-btn px-4 py-2 text-xs font-bold transition-all' : 'px-4 py-2 text-xs font-bold text-zinc-500 transition-all';
+            document.getElementById('btn-en').className = isJa ? 'px-4 py-2 text-xs font-bold text-zinc-500 transition-all' : 'active-btn px-4 py-2 text-xs font-bold transition-all';
+        }
+    </script>
+</body>
+</html>

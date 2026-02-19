@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GA OPTIMIZER PRO - AI画像最適化ツール</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0a0a0a; color: #ffffff; margin: 0; font-family: sans-serif; }
+        .lang-en { display: none !important; }
+        .lang-ja { display: block !important; }
+        span.lang-ja { display: inline !important; }
+        .active-btn { background-color: #2563eb !important; color: white !important; }
+        .nav-bar { position: sticky; top: 0; z-index: 100; background: rgba(0,0,0,0.9); border-bottom: 1px solid #333; padding: 15px; }
+        .gradient-border { border: 1px solid transparent; background: linear-gradient(#0a0a0a, #0a0a0a) padding-box, linear-gradient(45deg, #2563eb, #9333ea) border-box; }
+        /* 無効化されたボタンのスタイル */
+        .btn-disabled { opacity: 0.3; pointer-events: none; filter: grayscale(1); }
+    </style>
+</head>
+<body>
+
+    <div class="nav-bar">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <div class="font-black italic uppercase text-blue-500 text-xl">GA OPTIMIZER</div>
+            <div class="flex border border-zinc-700 rounded-lg overflow-hidden bg-zinc-800">
+                <button onclick="setLang('ja')" id="btn-ja" class="active-btn px-4 py-2 text-xs font-bold transition-all">日本語</button>
+                <button onclick="setLang('en')" id="btn-en" class="px-4 py-2 text-xs font-bold transition-all text-zinc-400">English</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-6 py-12 text-center">
+        <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tighter">
+            <span class="lang-ja">進化するAI画像。</span>
+            <span class="lang-en">EVOLVE YOUR AI.</span>
+        </h1>
+        <p class="text-zinc-400 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+            <span class="lang-ja">遺伝的アルゴリズム（GA）を用いて、Stable Diffusionの潜在空間を自動探索。あなたのプロンプトから「最高の一枚」を追求します。</span>
+            <span class="lang-en">Automatically explore Stable Diffusion's latent space using Genetic Algorithms to find the "perfect shot" from your prompt.</span>
+        </p>
+
+        <div class="max-w-md mx-auto mb-12 p-6 bg-zinc-900 border border-zinc-800 rounded-2xl shadow-xl">
+            <div class="flex items-start gap-4 text-left">
+                <input type="checkbox" id="terms-checkbox" onchange="toggleButtons()" class="mt-1 w-5 h-5 rounded border-zinc-700 bg-zinc-800 text-blue-600 focus:ring-blue-500 cursor-pointer">
+                <label for="terms-checkbox" class="text-sm text-zinc-300 leading-snug cursor-pointer">
+                    <span class="lang-ja">
+                        <a href="law.html" class="text-blue-400 underline font-bold">利用規約およびAIモデル規約（Open RAIL-M）</a>に同意します。生成物の利用は自己責任であることを理解し、公序良俗に反する使用を行わないことを誓約します。
+                    </span>
+                    <span class="lang-en">
+                        I agree to the <a href="law.html" class="text-blue-400 underline font-bold">Terms of Service and AI Model License (Open RAIL-M)</a>. I understand that I am responsible for output and will not use it for harmful purposes.
+                    </span>
+                </label>
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-8 justify-center items-stretch">
+            
+            <div class="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl w-full max-w-sm flex flex-col">
+                <h3 class="text-xl font-bold mb-2 text-zinc-400 uppercase tracking-widest text-left">Free Trial</h3>
+                <div class="text-4xl font-black mb-6 text-left">¥0</div>
+                <ul class="text-left space-y-4 mb-10 text-zinc-300 flex-grow">
+                    <li>・ <span class="lang-ja">最大10世代の制限</span><span class="lang-en">10 Generations Limit</span></li>
+                    <li>・ <span class="lang-ja">動作環境の確認用</span><span class="lang-en">Check Compatibility</span></li>
+                </ul>
+                <a id="btn-free" href="https://github.com/user-attachments/files/25356914/GA_free.zipp" class="btn-disabled w-full bg-zinc-800 hover:bg-zinc-700 text-white font-bold py-4 rounded-xl transition-all border border-zinc-600 text-center">
+                    <span class="lang-ja">無料版をダウンロード</span>
+                    <span class="lang-en">Download Free Version</span>
+                </a>
+            </div>
+
+            <div class="gradient-border p-8 rounded-3xl w-full max-w-sm flex flex-col shadow-2xl relative overflow-hidden">
+                <div class="absolute top-4 right-4 bg-blue-600 text-[10px] font-bold px-2 py-1 rounded">RECOMMENDED</div>
+                <h3 class="text-xl font-bold mb-2 text-blue-400 uppercase tracking-widest text-left">Pro Plan</h3>
+                <div class="text-4xl font-black mb-2 text-left">¥1,980<span class="text-sm font-normal text-zinc-500 ml-2">/ month</span></div>
+                <ul class="text-left space-y-4 mb-8 text-zinc-300 flex-grow text-sm">
+                    <li>・ <span class="lang-ja">世代数制限の解除</span><span class="lang-en">Unlimited Generations</span></li>
+                    <li>・ <span class="lang-ja">商用利用可能</span><span class="lang-en">Commercial License</span></li>
+                    <li>・ <span class="lang-ja">全機能へのアクセス</span><span class="lang-en">All Pro Features</span></li>
+                </ul>
+                
+                <a id="btn-pro-buy" href="https://buy.stripe.com/bJeaEWen37IDbVb0XF4AU03" class="btn-disabled block w-full bg-blue-600 py-4 rounded-xl font-black hover:bg-blue-500 transition-all shadow-xl shadow-blue-500/20 text-lg mb-4 text-center">
+                    <span class="lang-ja">同意してPro版を購入</span>
+                    <span class="lang-en">Agree & Get Pro Access</span>
+                </a>
+
+                <p class="text-[10px] text-zinc-500 mb-4 leading-tight">
+    <span class="lang-ja">※商品の性質上、決済後の返金・返品はできません。必ず無料版で動作を確認してからご購入ください。</span>
+    <span class="lang-en">*Due to the nature of digital goods, all sales are final. Please verify compatibility with the Free Version before purchasing.</span>
+</p>
+
+                <div class="p-4 bg-zinc-800/50 rounded-xl border border-zinc-700 text-center">
+                    <p class="text-[10px] text-zinc-400 mb-1 uppercase tracking-tighter">
+                        <span class="lang-ja">【事前動作確認用】</span>
+                        <span class="lang-en">[Pre-Download Check]</span>
+                    </p>
+                    <a id="btn-pro-dl" href="https://github.com/user-attachments/files/25356915/GA_pro.zip" class="btn-disabled text-sm text-blue-400 underline font-bold hover:text-blue-300">
+                        GA_Optimizer_Pro.zip
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-24 border-t border-zinc-800 pt-12 text-center">
+            <a href="law.html" class="text-zinc-500 underline text-sm hover:text-blue-400 transition-colors">
+                <span class="lang-ja">特定商取引法に基づく表記・利用規約</span>
+                <span class="lang-en">Legal Notice / Terms of Service</span>
+            </a>
+            <p class="text-zinc-600 text-[10px] mt-8">© 2026 GA OPTIMIZER PROJECT / Junichi Sakai</p>
+        </div>
+    </div>
+
+    <script>
+        // ボタンの有効/無効を切り替える関数
+        function toggleButtons() {
+            const isChecked = document.getElementById('terms-checkbox').checked;
+            const buttons = ['btn-free', 'btn-pro-buy', 'btn-pro-dl'];
+            
+            buttons.forEach(id => {
+                const btn = document.getElementById(id);
+                if (isChecked) {
+                    btn.classList.remove('btn-disabled');
+                } else {
+                    btn.classList.add('btn-disabled');
+                }
+            });
+        }
+
+        function setLang(lang) {
+            const isJa = (lang === 'ja');
+            document.querySelectorAll('.lang-ja').forEach(el => {
+                el.style.setProperty('display', isJa ? (el.tagName === 'SPAN' ? 'inline' : 'block') : 'none', 'important');
+            });
+            document.querySelectorAll('.lang-en').forEach(el => {
+                el.style.setProperty('display', isJa ? 'none' : (el.tagName === 'SPAN' ? 'inline' : 'block'), 'important');
+            });
+            
+            document.getElementById('btn-ja').className = isJa ? 'active-btn px-4 py-2 text-xs font-bold transition-all' : 'px-4 py-2 text-xs font-bold transition-all text-zinc-400';
+            document.getElementById('btn-en').className = isJa ? 'px-4 py-2 text-xs font-bold transition-all text-zinc-400' : 'active-btn px-4 py-2 text-xs font-bold transition-all';
+        }
+    </script>
+</body>
+</html>
