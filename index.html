@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MVGDQD2WP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1MVGDQD2WP');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GA OPTIMIZER PRO - AI画像最適化ツール</title>
@@ -13,21 +21,9 @@
         .active-btn { background-color: #2563eb !important; color: white !important; }
         .nav-bar { position: sticky; top: 0; z-index: 100; background: rgba(0,0,0,0.9); border-bottom: 1px solid #333; padding: 15px; }
         .gradient-border { border: 1px solid transparent; background: linear-gradient(#0a0a0a, #0a0a0a) padding-box, linear-gradient(45deg, #2563eb, #9333ea) border-box; }
-        /* 無効化されたボタンのスタイル */
         .btn-disabled { opacity: 0.3; pointer-events: none; filter: grayscale(1); }
     </style>
-    <!DOCTYPE html>
-<html lang="ja">
-<head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MVGDQD2WP"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-1MVGDQD2WP');
-    </script>
-</head>
-<body>
+</head> <body>
 
     <div class="nav-bar">
         <div class="max-w-4xl mx-auto flex justify-between items-center">
@@ -106,7 +102,7 @@
         </div>
         
         <div class="mt-24 border-t border-zinc-800 pt-12 text-center">
-            <a href="law.html" class="text-zinc-500 underline text-sm hover:text-blue-400 transition-colors">
+            <a href="law_lp.html" class="text-zinc-500 underline text-sm hover:text-blue-400 transition-colors">
                 <span class="lang-ja">特定商取引法に基づく表記・利用規約</span>
                 <span class="lang-en">Legal Notice / Terms of Service</span>
             </a>
@@ -116,32 +112,39 @@
 
     <script>
         // ボタンの有効/無効を切り替える関数
-        function toggleButtons() {
-            const isChecked = document.getElementById('terms-checkbox').checked;
-            const buttons = ['btn-free', 'btn-pro-buy', 'btn-pro-dl'];
-            
-            buttons.forEach(id => {
-                const btn = document.getElementById(id);
-                if (isChecked) {
-                    btn.classList.remove('btn-disabled');
-                } else {
-                    btn.classList.add('btn-disabled');
-                }
-            });
-        }
+       function toggleButtons() {
+           const isChecked = document.getElementById('terms-checkbox').checked;
+           const buttons = ['btn-free', 'btn-pro-buy', 'btn-pro-dl'];
+    
+           buttons.forEach(id => {
+               const btn = document.getElementById(id);
+               if (isChecked) {
+                   btn.classList.remove('btn-disabled');
+            // クリックイベントを一度だけ追加（重複防止）
+                   btn.onclick = () => trackDownload(id);
+               } else {
+                   btn.classList.add('btn-disabled');
+                   btn.onclick = null;
+            }
+      });
+}
 
-        function setLang(lang) {
-            const isJa = (lang === 'ja');
-            document.querySelectorAll('.lang-ja').forEach(el => {
-                el.style.setProperty('display', isJa ? (el.tagName === 'SPAN' ? 'inline' : 'block') : 'none', 'important');
-            });
-            document.querySelectorAll('.lang-en').forEach(el => {
-                el.style.setProperty('display', isJa ? 'none' : (el.tagName === 'SPAN' ? 'inline' : 'block'), 'important');
-            });
-            
-            document.getElementById('btn-ja').className = isJa ? 'active-btn px-4 py-2 text-xs font-bold transition-all' : 'px-4 py-2 text-xs font-bold transition-all text-zinc-400';
-            document.getElementById('btn-en').className = isJa ? 'px-4 py-2 text-xs font-bold transition-all text-zinc-400' : 'active-btn px-4 py-2 text-xs font-bold transition-all';
-        }
+// Google Analytics にイベントを送信する関数
+function trackDownload(buttonId) {
+    let fileName = "";
+    if (buttonId === 'btn-free') fileName = "GA_free.zip";
+    if (buttonId === 'btn-pro-buy') fileName = "Pro_Checkout_Redirect";
+    if (buttonId === 'btn-pro-dl') fileName = "GA_pro.zip";
+
+    gtag('event', 'file_download', {
+        'event_category': 'download',
+        'event_label': fileName,
+        'value': 1
+    });
+    
+    // デバッグ用（本番では消してもOK）
+    console.log("Analytics Logged: " + fileName);
+}
     </script>
 </body>
 </html>
